@@ -73,12 +73,21 @@ receivers:
     collection_interval: 30s
     scrapers:
       cpu: {}
-      disk: {}
+      disk:
+        exclude:
+          devices: [HarddiskVolume.*]
+          match_type: regexp
       process:
         mute_process_all_errors: true
       memory: {}
       network: {}
-      filesystem: {}
+      filesystem:
+        exclude_fs_types:
+          fs_types: [Cdfs, UDF, FAT32]
+          match_type: strict
+        exclude_mount_points:
+          mount_points: ['\\\\*']
+          match_type: regexp
       paging: {}
 
 processors:
