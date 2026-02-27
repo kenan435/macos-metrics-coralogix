@@ -44,7 +44,7 @@ if [[ "${HTTP_CODE}" == "200" ]]; then
   DASHBOARD_ID=$(echo "${HTTP_BODY}" | jq -r '.dashboardId')
   echo "Dashboard created successfully!"
   echo "Dashboard ID: ${DASHBOARD_ID}"
-  echo "URL: https://${REGION}.coralogix.com/#/dashboard/${DASHBOARD_ID}"
+  echo "URL: https://kenan-lab.app.${REGION}.coralogix.com/#/dashboards/${DASHBOARD_ID}"
 else
   echo "Error: API returned HTTP ${HTTP_CODE}"
   echo "Response:"

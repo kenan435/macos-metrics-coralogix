@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.coralogix.otel-collector</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/kenan.karamehmedovic/Developer/macos-metrics-coralogix/otelcol-contrib</string>
+        <string>--config</string>
+        <string>/Users/kenan.karamehmedovic/Developer/macos-metrics-coralogix/config.yaml</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>CORALOGIX_PRIVATE_KEY</key>
+        <string>cxtp_4or04D4zFm9KB3MFRIybjjen8xk2e5</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/kenan.karamehmedovic/Developer/macos-metrics-coralogix/collector.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/kenan.karamehmedovic/Developer/macos-metrics-coralogix/collector.log</string>
+
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+</dict>
+</plist>

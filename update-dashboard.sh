@@ -41,7 +41,7 @@ HTTP_BODY=$(echo "$RESPONSE" | sed '$d')
 if [[ "${HTTP_CODE}" == "200" ]]; then
   echo "Dashboard updated successfully!"
   DASHBOARD_ID=$(jq -r '.id // empty' "${DASHBOARD_JSON}")
-  [[ -n "$DASHBOARD_ID" ]] && echo "URL: https://${REGION}.coralogix.com/#/dashboard/${DASHBOARD_ID}"
+  [[ -n "$DASHBOARD_ID" ]] && echo "URL: https://kenan-lab.app.${REGION}.coralogix.com/#/dashboards/${DASHBOARD_ID}"
 else
   echo "Error: API returned HTTP ${HTTP_CODE}"
   echo "Response:"

@@ -5,82 +5,175 @@
   "layout": {
     "sections": [
       {
-        "id": {"value": "a0356ffc-1679-4a75-bf07-60f8f0533797"},
+        "id": {
+          "value": "a0356ffc-1679-4a75-bf07-60f8f0533797"
+        },
         "rows": [
           {
-            "id": {"value": "row-usage-pct"},
-            "appearance": {"height": 16},
+            "id": {
+              "value": "row-usage-pct"
+            },
+            "appearance": {
+              "height": 16
+            },
             "widgets": [
               {
-                "id": {"value": "line-cpu-pct"},
+                "id": {
+                  "value": "line-cpu-pct"
+                },
                 "title": "CPU usage (%)",
                 "definition": {
                   "lineChart": {
-                    "legend": {"isVisible": true, "columns": [], "groupByQuery": false, "placement": "LEGEND_PLACEMENT_AUTO"},
-                    "tooltip": {"showLabels": false, "type": "TOOLTIP_TYPE_ALL"},
-                    "queryDefinitions": [{
-                      "id": "q-cpu-pct",
-                      "query": {"metrics": {"promqlQuery": {"value": "100 - (avg(avg_over_time(system_cpu_utilization_1{state=\"idle\",cx_application_name=\"macbook\"}[1m])) by (host_name) * 100)"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}},
-                      "seriesCountLimit": "20",
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "name": "CPU %",
+                    "legend": {
                       "isVisible": true,
-                      "colorScheme": "classic",
-                      "resolution": {"bucketsPresented": 96},
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "hashColors": false
-                    }],
+                      "columns": [],
+                      "groupByQuery": false,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "tooltip": {
+                      "showLabels": false,
+                      "type": "TOOLTIP_TYPE_ALL"
+                    },
+                    "queryDefinitions": [
+                      {
+                        "id": "q-cpu-pct",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "100 - (avg(avg_over_time(system_cpu_utilization_ratio{state=\"idle\",cx_application_name=\"macbook\"}[1m])) by (host_name) * 100)"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "CPU %",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      }
+                    ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
                     "connectNulls": false
                   }
                 }
               },
               {
-                "id": {"value": "line-mem-pct"},
+                "id": {
+                  "value": "line-mem-pct"
+                },
                 "title": "Memory usage (%)",
                 "definition": {
                   "lineChart": {
-                    "legend": {"isVisible": true, "columns": [], "groupByQuery": false, "placement": "LEGEND_PLACEMENT_AUTO"},
-                    "tooltip": {"showLabels": false, "type": "TOOLTIP_TYPE_ALL"},
-                    "queryDefinitions": [{
-                      "id": "q-mem-pct",
-                      "query": {"metrics": {"promqlQuery": {"value": "(sum(system_memory_usage_By{cx_application_name=\"macbook\",state=\"used\"}) / sum(system_memory_usage_By{cx_application_name=\"macbook\"})) * 100"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}},
-                      "seriesCountLimit": "20",
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "name": "Memory %",
+                    "legend": {
                       "isVisible": true,
-                      "colorScheme": "classic",
-                      "resolution": {"bucketsPresented": 96},
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "hashColors": false
-                    }],
+                      "columns": [],
+                      "groupByQuery": false,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "tooltip": {
+                      "showLabels": false,
+                      "type": "TOOLTIP_TYPE_ALL"
+                    },
+                    "queryDefinitions": [
+                      {
+                        "id": "q-mem-pct",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "(sum(system_memory_usage_By{cx_application_name=\"macbook\",state=\"used\"}) / sum(system_memory_usage_By{cx_application_name=\"macbook\"})) * 100"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "Memory %",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      }
+                    ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
                     "connectNulls": false
                   }
                 }
               },
               {
-                "id": {"value": "line-storage-pct"},
+                "id": {
+                  "value": "line-storage-pct"
+                },
                 "title": "Storage usage (%)",
                 "definition": {
                   "lineChart": {
-                    "legend": {"isVisible": true, "columns": [], "groupByQuery": false, "placement": "LEGEND_PLACEMENT_AUTO"},
-                    "tooltip": {"showLabels": false, "type": "TOOLTIP_TYPE_ALL"},
-                    "queryDefinitions": [{
-                      "id": "q-storage-pct",
-                      "query": {"metrics": {"promqlQuery": {"value": "(sum(system_filesystem_usage_By{cx_application_name=\"macbook\",state=\"used\"}) / sum(system_filesystem_usage_By{cx_application_name=\"macbook\"})) * 100"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}},
-                      "seriesCountLimit": "20",
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "name": "Storage %",
+                    "legend": {
                       "isVisible": true,
-                      "colorScheme": "classic",
-                      "resolution": {"bucketsPresented": 96},
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "hashColors": false
-                    }],
+                      "columns": [],
+                      "groupByQuery": false,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "tooltip": {
+                      "showLabels": false,
+                      "type": "TOOLTIP_TYPE_ALL"
+                    },
+                    "queryDefinitions": [
+                      {
+                        "id": "q-storage-pct",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "(sum(system_filesystem_usage_By{cx_application_name=\"macbook\",state=\"used\"}) / sum(system_filesystem_usage_By{cx_application_name=\"macbook\"})) * 100"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "Storage %",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      }
+                    ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
                     "connectNulls": false
                   }
@@ -89,29 +182,62 @@
             ]
           },
           {
-            "id": {"value": "row-network"},
-            "appearance": {"height": 19},
+            "id": {
+              "value": "row-network"
+            },
+            "appearance": {
+              "height": 19
+            },
             "widgets": [
               {
-                "id": {"value": "area-network"},
+                "id": {
+                  "value": "area-network"
+                },
                 "title": "Network traffic",
                 "definition": {
                   "lineChart": {
-                    "legend": {"isVisible": true, "columns": [], "groupByQuery": true, "placement": "LEGEND_PLACEMENT_AUTO"},
-                    "tooltip": {"showLabels": false, "type": "TOOLTIP_TYPE_ALL"},
-                    "queryDefinitions": [{
-                      "id": "q-net",
-                      "query": {"metrics": {"promqlQuery": {"value": "sum(rate(system_network_io_By_total{cx_application_name=\"macbook\"}[5m])) by (direction) / 1024"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}},
-                      "seriesCountLimit": "20",
-                      "unit": "UNIT_KIBYTES",
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "name": "Query 1",
+                    "legend": {
                       "isVisible": true,
-                      "colorScheme": "classic",
-                      "resolution": {"bucketsPresented": 96},
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "hashColors": false
-                    }],
+                      "columns": [],
+                      "groupByQuery": true,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "tooltip": {
+                      "showLabels": false,
+                      "type": "TOOLTIP_TYPE_ALL"
+                    },
+                    "queryDefinitions": [
+                      {
+                        "id": "q-net",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(rate(system_network_io_By_total{cx_application_name=\"macbook\"}[5m])) by (direction) / 1024"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_KIBYTES",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "Query 1",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      }
+                    ],
                     "stackedLine": "STACKED_LINE_ABSOLUTE",
                     "connectNulls": false
                   }
@@ -120,91 +246,251 @@
             ]
           },
           {
-            "id": {"value": "row-paging-network"},
-            "appearance": {"height": 16},
+            "id": {
+              "value": "row-paging-network"
+            },
+            "appearance": {
+              "height": 16
+            },
             "widgets": [
               {
-                "id": {"value": "gauge-swap"},
+                "id": {
+                  "value": "gauge-swap"
+                },
                 "title": "Swap usage (GB)",
                 "definition": {
                   "gauge": {
-                    "query": {"metrics": {"promqlQuery": {"value": "sum(system_paging_usage_By{cx_application_name=\"macbook\",state=\"used\"})"}, "aggregation": "AGGREGATION_UNSPECIFIED", "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"}},
+                    "query": {
+                      "metrics": {
+                        "promqlQuery": {
+                          "value": "sum(system_paging_usage_By{cx_application_name=\"macbook\",state=\"used\"})"
+                        },
+                        "aggregation": "AGGREGATION_UNSPECIFIED",
+                        "filters": [],
+                        "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                        "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                      }
+                    },
                     "min": 0,
                     "max": 34359738368,
                     "showInnerArc": false,
                     "showOuterArc": false,
                     "unit": "UNIT_BYTES",
-                    "thresholds": [{"from": 0, "color": "var(--c-severity-log-verbose)"}, {"from": 8589934592, "color": "var(--c-severity-log-warning)"}, {"from": 17179869184, "color": "var(--c-severity-log-error)"}],
+                    "thresholds": [
+                      {
+                        "from": 0,
+                        "color": "var(--c-severity-log-verbose)"
+                      },
+                      {
+                        "from": 8589934592,
+                        "color": "var(--c-severity-log-warning)"
+                      },
+                      {
+                        "from": 17179869184,
+                        "color": "var(--c-severity-log-error)"
+                      }
+                    ],
                     "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                     "thresholdBy": "THRESHOLD_BY_VALUE",
                     "decimal": 2,
                     "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                    "legend": {"isVisible": true, "columns": [], "groupByQuery": true, "placement": "LEGEND_PLACEMENT_AUTO"},
+                    "legend": {
+                      "isVisible": true,
+                      "columns": [],
+                      "groupByQuery": true,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
                     "legendBy": "LEGEND_BY_GROUPS",
                     "displaySeriesName": true
                   }
                 }
               },
               {
-                "id": {"value": "area-connections"},
+                "id": {
+                  "value": "area-connections"
+                },
                 "title": "Network connections by state",
                 "definition": {
                   "lineChart": {
-                    "legend": {"isVisible": true, "columns": [], "groupByQuery": true, "placement": "LEGEND_PLACEMENT_AUTO"},
-                    "tooltip": {"showLabels": false, "type": "TOOLTIP_TYPE_ALL"},
-                    "queryDefinitions": [{
-                      "id": "q-conn",
-                      "query": {"metrics": {"promqlQuery": {"value": "sum(system_network_connections__connections_{cx_application_name=\"macbook\"}) by (state)"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}},
-                      "seriesCountLimit": "20",
-                      "unit": "UNIT_UNSPECIFIED",
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "name": "Connections",
+                    "legend": {
                       "isVisible": true,
-                      "colorScheme": "classic",
-                      "resolution": {"bucketsPresented": 96},
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "hashColors": false
-                    }],
+                      "columns": [],
+                      "groupByQuery": true,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "tooltip": {
+                      "showLabels": false,
+                      "type": "TOOLTIP_TYPE_ALL"
+                    },
+                    "queryDefinitions": [
+                      {
+                        "id": "q-conn",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(system_network_connections__connections_{cx_application_name=\"macbook\"}) by (state)"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_UNSPECIFIED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "Connections",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      }
+                    ],
                     "stackedLine": "STACKED_LINE_ABSOLUTE",
                     "connectNulls": false
                   }
                 }
               },
               {
-                "id": {"value": "line-faults"},
+                "id": {
+                  "value": "line-faults"
+                },
                 "title": "Page faults rate",
                 "definition": {
                   "lineChart": {
-                    "legend": {"isVisible": true, "columns": [], "groupByQuery": true, "placement": "LEGEND_PLACEMENT_AUTO"},
-                    "tooltip": {"showLabels": false, "type": "TOOLTIP_TYPE_ALL"},
-                    "queryDefinitions": [{
-                      "id": "q-faults",
-                      "query": {"metrics": {"promqlQuery": {"value": "sum(rate(system_paging_faults__faults__total{cx_application_name=\"macbook\"}[5m])) by (type)"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}},
-                      "seriesCountLimit": "10",
-                      "unit": "UNIT_UNSPECIFIED",
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "name": "Faults/s",
+                    "legend": {
                       "isVisible": true,
-                      "colorScheme": "classic",
-                      "resolution": {"bucketsPresented": 96},
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "hashColors": false
-                    }],
+                      "columns": [],
+                      "groupByQuery": true,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "tooltip": {
+                      "showLabels": false,
+                      "type": "TOOLTIP_TYPE_ALL"
+                    },
+                    "queryDefinitions": [
+                      {
+                        "id": "q-faults",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(rate(system_paging_faults__faults__total{cx_application_name=\"macbook\"}[5m])) by (type)"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "10",
+                        "unit": "UNIT_UNSPECIFIED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "Faults/s",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      }
+                    ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
                     "connectNulls": false
                   }
                 }
               },
               {
-                "id": {"value": "line-errors-drop"},
+                "id": {
+                  "value": "line-errors-drop"
+                },
                 "title": "Network errors & dropped packets",
                 "definition": {
                   "lineChart": {
-                    "legend": {"isVisible": true, "columns": [], "groupByQuery": true, "placement": "LEGEND_PLACEMENT_AUTO"},
-                    "tooltip": {"showLabels": false, "type": "TOOLTIP_TYPE_ALL"},
+                    "legend": {
+                      "isVisible": true,
+                      "columns": [],
+                      "groupByQuery": true,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "tooltip": {
+                      "showLabels": false,
+                      "type": "TOOLTIP_TYPE_ALL"
+                    },
                     "queryDefinitions": [
-                      {"id": "q-errors", "query": {"metrics": {"promqlQuery": {"value": "sum(rate(system_network_errors__errors__total{cx_application_name=\"macbook\"}[5m]))"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}}, "seriesCountLimit": "5", "unit": "UNIT_UNSPECIFIED", "scaleType": "SCALE_TYPE_LINEAR", "name": "Errors/s", "isVisible": true, "colorScheme": "classic", "resolution": {"bucketsPresented": 96}, "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED", "hashColors": false},
-                      {"id": "q-dropped", "query": {"metrics": {"promqlQuery": {"value": "sum(rate(system_network_dropped__packets__total{cx_application_name=\"macbook\"}[5m]))"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}}, "seriesCountLimit": "5", "unit": "UNIT_UNSPECIFIED", "scaleType": "SCALE_TYPE_LINEAR", "name": "Dropped/s", "isVisible": true, "colorScheme": "classic", "resolution": {"bucketsPresented": 96}, "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED", "hashColors": false}
+                      {
+                        "id": "q-errors",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(rate(system_network_errors__errors__total{cx_application_name=\"macbook\"}[5m]))"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "5",
+                        "unit": "UNIT_UNSPECIFIED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "Errors/s",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      },
+                      {
+                        "id": "q-dropped",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(rate(system_network_dropped__packets__total{cx_application_name=\"macbook\"}[5m]))"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "5",
+                        "unit": "UNIT_UNSPECIFIED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "Dropped/s",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
                     "connectNulls": false
@@ -214,40 +500,154 @@
             ]
           },
           {
-            "id": {"value": "row-disk-load"},
-            "appearance": {"height": 19},
+            "id": {
+              "value": "row-disk-load"
+            },
+            "appearance": {
+              "height": 19
+            },
             "widgets": [
               {
-                "id": {"value": "table-disk"},
+                "id": {
+                  "value": "table-disk"
+                },
                 "title": "Disk usage",
                 "definition": {
                   "dataTable": {
                     "query": {
                       "metrics": {
-                        "promqlQuery": {"value": "(sum(system_filesystem_usage_By{cx_application_name=\"macbook\",state=\"used\"}) by (device) / sum(system_filesystem_usage_By{cx_application_name=\"macbook\"}) by (device)) * 100"},
+                        "promqlQuery": {
+                          "value": "(sum(system_filesystem_usage_By{cx_application_name=\"macbook\",state=\"used\"}) by (device) / sum(system_filesystem_usage_By{cx_application_name=\"macbook\"}) by (device)) * 100"
+                        },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                        "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                       }
                     },
                     "resultsPerPage": 50,
                     "rowStyle": "ROW_STYLE_UNSPECIFIED",
-                    "columns": [{"field": "device", "width": 280}, {"field": "value", "width": 100}],
+                    "columns": [
+                      {
+                        "field": "device",
+                        "width": 280
+                      },
+                      {
+                        "field": "Value",
+                        "width": 120
+                      }
+                    ],
                     "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
                   }
                 }
               },
               {
-                "id": {"value": "line-load"},
+                "id": {
+                  "value": "line-load"
+                },
                 "title": "Load average",
                 "definition": {
                   "lineChart": {
-                    "legend": {"isVisible": true, "columns": [], "groupByQuery": false, "placement": "LEGEND_PLACEMENT_AUTO"},
-                    "tooltip": {"showLabels": false, "type": "TOOLTIP_TYPE_ALL"},
+                    "legend": {
+                      "isVisible": true,
+                      "columns": [],
+                      "groupByQuery": false,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "tooltip": {
+                      "showLabels": false,
+                      "type": "TOOLTIP_TYPE_ALL"
+                    },
                     "queryDefinitions": [
-                      {"id": "q-load-1m", "query": {"metrics": {"promqlQuery": {"value": "sum(system_cpu_load_average_1m__thread_{cx_application_name=\"macbook\"})"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}}, "seriesCountLimit": "20", "unit": "UNIT_UNSPECIFIED", "scaleType": "SCALE_TYPE_LINEAR", "name": "1m", "isVisible": true, "colorScheme": "classic", "resolution": {"bucketsPresented": 96}, "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED", "hashColors": false},
-                      {"id": "q-load-5m", "query": {"metrics": {"promqlQuery": {"value": "sum(system_cpu_load_average_5m__thread_{cx_application_name=\"macbook\"})"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}}, "seriesCountLimit": "20", "unit": "UNIT_UNSPECIFIED", "scaleType": "SCALE_TYPE_LINEAR", "name": "5m", "isVisible": true, "colorScheme": "classic", "resolution": {"bucketsPresented": 96}, "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED", "hashColors": false},
-                      {"id": "q-load-15m", "query": {"metrics": {"promqlQuery": {"value": "sum(system_cpu_load_average_15m__thread_{cx_application_name=\"macbook\"})"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"}}, "seriesCountLimit": "20", "unit": "UNIT_UNSPECIFIED", "scaleType": "SCALE_TYPE_LINEAR", "name": "15m", "isVisible": true, "colorScheme": "classic", "resolution": {"bucketsPresented": 96}, "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED", "hashColors": false}
+                      {
+                        "id": "q-load-1m",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(system_cpu_load_average_1m__thread_{cx_application_name=\"macbook\"})"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_UNSPECIFIED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "1m",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      },
+                      {
+                        "id": "q-load-5m",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(system_cpu_load_average_5m__thread_{cx_application_name=\"macbook\"})"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_UNSPECIFIED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "5m",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      },
+                      {
+                        "id": "q-load-15m",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(system_cpu_load_average_15m__thread_{cx_application_name=\"macbook\"})"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_UNSPECIFIED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "15m",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
+                      }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
                     "connectNulls": false
@@ -257,52 +657,82 @@
             ]
           },
           {
-            "id": {"value": "row-processes"},
-            "appearance": {"height": 19},
+            "id": {
+              "value": "row-processes"
+            },
+            "appearance": {
+              "height": 19
+            },
             "widgets": [
               {
-                "id": {"value": "table-processes"},
+                "id": {
+                  "value": "table-processes"
+                },
                 "title": "Top processes by memory",
                 "definition": {
                   "dataTable": {
                     "query": {
                       "metrics": {
-                        "promqlQuery": {"value": "topk(50, max(max_over_time(process_memory_usage_By{cx_application_name=\"macbook\"}[1h])) by (process_pid,process_executable_name) / 1024 / 1024)"},
+                        "promqlQuery": {
+                          "value": "topk(50, max(max_over_time(process_memory_usage_By{cx_application_name=\"macbook\"}[1h])) by (process_pid,process_executable_name) / 1024 / 1024)"
+                        },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                        "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                       }
                     },
                     "resultsPerPage": 50,
                     "rowStyle": "ROW_STYLE_UNSPECIFIED",
                     "columns": [
-                      {"field": "process_pid", "width": 80},
-                      {"field": "process_executable_name", "width": 320},
-                      {"field": "value", "width": 100}
+                      {
+                        "field": "process_pid",
+                        "width": 80
+                      },
+                      {
+                        "field": "process_executable_name",
+                        "width": 320
+                      },
+                      {
+                        "field": "Value",
+                        "width": 120
+                      }
                     ],
                     "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
                   }
                 }
               },
               {
-                "id": {"value": "table-processes-cpu"},
+                "id": {
+                  "value": "table-processes-cpu"
+                },
                 "title": "Top processes by CPU %",
                 "definition": {
                   "dataTable": {
                     "query": {
                       "metrics": {
-                        "promqlQuery": {"value": "topk(50, sum(rate(process_cpu_time_total{cx_application_name=\"macbook\"}[5m])) by (process_pid,process_executable_name) * 100)"},
+                        "promqlQuery": {
+                          "value": "topk(50, sum(rate(process_cpu_time_total{cx_application_name=\"macbook\"}[5m])) by (process_pid,process_executable_name) * 100)"
+                        },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                        "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                       }
                     },
                     "resultsPerPage": 50,
                     "rowStyle": "ROW_STYLE_UNSPECIFIED",
                     "columns": [
-                      {"field": "process_pid", "width": 80},
-                      {"field": "process_executable_name", "width": 320},
-                      {"field": "value", "width": 100}
+                      {
+                        "field": "process_pid",
+                        "width": 80
+                      },
+                      {
+                        "field": "process_executable_name",
+                        "width": 320
+                      },
+                      {
+                        "field": "Value",
+                        "width": 120
+                      }
                     ],
                     "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
                   }
@@ -311,28 +741,168 @@
             ]
           },
           {
-            "id": {"value": "row-summary"},
-            "appearance": {"height": 12},
+            "id": {
+              "value": "row-summary"
+            },
+            "appearance": {
+              "height": 12
+            },
             "widgets": [
               {
-                "id": {"value": "gauge-cpu"},
+                "id": {
+                  "value": "gauge-cpu"
+                },
                 "title": "CPU Load (1m)",
-                "definition": {"gauge": {"query": {"metrics": {"promqlQuery": {"value": "sum(system_cpu_load_average_1m__thread_{cx_application_name=\"macbook\"}) / 16 * 100"}, "aggregation": "AGGREGATION_UNSPECIFIED", "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"}}, "min": 0, "max": 100, "showInnerArc": false, "showOuterArc": false, "unit": "UNIT_PERCENT_ZERO_HUNDRED", "thresholds": [{"from": 0, "color": "var(--c-severity-log-verbose)"}, {"from": 25, "color": "var(--c-severity-log-warning)"}, {"from": 75, "color": "var(--c-severity-log-error)"}], "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED", "thresholdBy": "THRESHOLD_BY_VALUE", "decimal": 2, "thresholdType": "THRESHOLD_TYPE_RELATIVE", "legend": {"isVisible": true, "columns": [], "groupByQuery": true, "placement": "LEGEND_PLACEMENT_AUTO"}, "legendBy": "LEGEND_BY_GROUPS", "displaySeriesName": true}}
+                "definition": {
+                  "gauge": {
+                    "query": {
+                      "metrics": {
+                        "promqlQuery": {
+                          "value": "sum(system_cpu_load_average_1m__thread_{cx_application_name=\"macbook\"}) / 16 * 100"
+                        },
+                        "aggregation": "AGGREGATION_UNSPECIFIED",
+                        "filters": [],
+                        "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                        "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                      }
+                    },
+                    "min": 0,
+                    "max": 100,
+                    "showInnerArc": false,
+                    "showOuterArc": false,
+                    "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                    "thresholds": [
+                      {
+                        "from": 0,
+                        "color": "var(--c-severity-log-verbose)"
+                      },
+                      {
+                        "from": 25,
+                        "color": "var(--c-severity-log-warning)"
+                      },
+                      {
+                        "from": 75,
+                        "color": "var(--c-severity-log-error)"
+                      }
+                    ],
+                    "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                    "thresholdBy": "THRESHOLD_BY_VALUE",
+                    "decimal": 2,
+                    "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                    "legend": {
+                      "isVisible": true,
+                      "columns": [],
+                      "groupByQuery": true,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "legendBy": "LEGEND_BY_GROUPS",
+                    "displaySeriesName": true
+                  }
+                }
               },
               {
-                "id": {"value": "hex-mem"},
+                "id": {
+                  "value": "hex-mem"
+                },
                 "title": "Memory %",
-                "definition": {"hexagon": {"query": {"metrics": {"promqlQuery": {"value": "(sum(system_memory_usage_By{cx_application_name=\"macbook\",state=\"used\"}) / sum(system_memory_usage_By{cx_application_name=\"macbook\"})) * 100"}, "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "aggregation": "AGGREGATION_LAST", "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"}}, "min": 0, "max": 100, "unit": "UNIT_PERCENT_ZERO_HUNDRED", "thresholds": [{"from": 0, "color": "var(--c-severity-log-verbose)"}, {"from": 70, "color": "var(--c-severity-log-warning)"}, {"from": 90, "color": "var(--c-severity-log-error)"}], "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED", "thresholdType": "THRESHOLD_TYPE_RELATIVE", "legend": {"isVisible": true, "columns": [], "groupByQuery": true, "placement": "LEGEND_PLACEMENT_AUTO"}, "legendBy": "LEGEND_BY_GROUPS"}}
+                "definition": {
+                  "hexagon": {
+                    "query": {
+                      "metrics": {
+                        "promqlQuery": {
+                          "value": "(sum(system_memory_usage_By{cx_application_name=\"macbook\",state=\"used\"}) / sum(system_memory_usage_By{cx_application_name=\"macbook\"})) * 100"
+                        },
+                        "filters": [],
+                        "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                        "aggregation": "AGGREGATION_LAST",
+                        "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                      }
+                    },
+                    "min": 0,
+                    "max": 100,
+                    "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                    "thresholds": [
+                      {
+                        "from": 0,
+                        "color": "var(--c-severity-log-verbose)"
+                      },
+                      {
+                        "from": 70,
+                        "color": "var(--c-severity-log-warning)"
+                      },
+                      {
+                        "from": 90,
+                        "color": "var(--c-severity-log-error)"
+                      }
+                    ],
+                    "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                    "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                    "legend": {
+                      "isVisible": true,
+                      "columns": [],
+                      "groupByQuery": true,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "legendBy": "LEGEND_BY_GROUPS"
+                  }
+                }
               },
               {
-                "id": {"value": "gauge-disk"},
+                "id": {
+                  "value": "gauge-disk"
+                },
                 "title": "Total Disk (GB)",
-                "definition": {"gauge": {"query": {"metrics": {"promqlQuery": {"value": "sum(system_filesystem_usage_By{cx_application_name=\"macbook\"})"}, "aggregation": "AGGREGATION_UNSPECIFIED", "filters": [], "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT", "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"}}, "min": 0, "max": 2147483648000, "showInnerArc": false, "showOuterArc": false, "unit": "UNIT_BYTES", "thresholds": [{"from": 0, "color": "var(--c-severity-log-verbose)"}], "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED", "thresholdBy": "THRESHOLD_BY_VALUE", "decimal": 1, "thresholdType": "THRESHOLD_TYPE_RELATIVE", "legend": {"isVisible": true, "columns": [], "groupByQuery": true, "placement": "LEGEND_PLACEMENT_AUTO"}, "legendBy": "LEGEND_BY_GROUPS", "displaySeriesName": true}}
+                "definition": {
+                  "gauge": {
+                    "query": {
+                      "metrics": {
+                        "promqlQuery": {
+                          "value": "sum(system_filesystem_usage_By{cx_application_name=\"macbook\"})"
+                        },
+                        "aggregation": "AGGREGATION_UNSPECIFIED",
+                        "filters": [],
+                        "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                        "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                      }
+                    },
+                    "min": 0,
+                    "max": 2147483648000,
+                    "showInnerArc": false,
+                    "showOuterArc": false,
+                    "unit": "UNIT_BYTES",
+                    "thresholds": [
+                      {
+                        "from": 0,
+                        "color": "var(--c-severity-log-verbose)"
+                      }
+                    ],
+                    "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                    "thresholdBy": "THRESHOLD_BY_VALUE",
+                    "decimal": 1,
+                    "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                    "legend": {
+                      "isVisible": true,
+                      "columns": [],
+                      "groupByQuery": true,
+                      "placement": "LEGEND_PLACEMENT_AUTO"
+                    },
+                    "legendBy": "LEGEND_BY_GROUPS",
+                    "displaySeriesName": true
+                  }
+                }
               }
             ]
           }
         ],
-        "options": {"custom": {"name": "MacBook Host Metrics", "collapsed": false, "color": {"predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"}}}
+        "options": {
+          "custom": {
+            "name": "MacBook Host Metrics",
+            "collapsed": false,
+            "color": {
+              "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+            }
+          }
+        }
       }
     ]
   },
