@@ -1,20 +1,19 @@
-# OpenTelemetry Collector - Local Mac to Coralogix
-# Sends host metrics from your Mac to Coralogix UI
+# OpenTelemetry Collector - Windows to Coralogix
+# Sends host metrics from a Windows machine to Coralogix
 
 receivers:
   hostmetrics:
     collection_interval: 30s
     scrapers:
-      # macOS: load, memory, network, filesystem, paging, cpu, process (contrib)
       cpu: {}
       disk: {}
       process:
         mute_process_all_errors: true
-      load: {}
       memory: {}
       network: {}
       filesystem: {}
       paging: {}
+      # Note: load average is not supported on Windows
 
 processors:
   batch:
@@ -23,7 +22,10 @@ processors:
   resource:
     attributes:
       - key: deployment.environment.name
-        value: "local-mac"
+        value: "local-windows"
+        action: upsert
+      - key: cx_application_name
+        value: "${env:CX_APPLICATION_NAME}"
         action: upsert
 
 exporters:

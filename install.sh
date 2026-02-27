@@ -16,7 +16,21 @@ echo "  MacBook Host Metrics → Coralogix  Installer"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-# ── 1. Get Coralogix private key ──────────────────────
+# ── 1. Get machine name ───────────────────────────────
+DEFAULT_NAME=$(hostname -s | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9-' '-' | sed 's/-*$//')
+if [ -n "$CX_APPLICATION_NAME" ]; then
+  echo "Using CX_APPLICATION_NAME from environment: $CX_APPLICATION_NAME"
+else
+  echo "Enter a name for this machine (shown in Coralogix as application name)."
+  echo "Press Enter to use the default: [$DEFAULT_NAME]"
+  read -r CX_APPLICATION_NAME
+  if [ -z "$CX_APPLICATION_NAME" ]; then
+    CX_APPLICATION_NAME="$DEFAULT_NAME"
+  fi
+fi
+echo "Application name: $CX_APPLICATION_NAME"
+
+# ── 2. Get Coralogix private key ──────────────────────
 if [ -n "$CORALOGIX_PRIVATE_KEY" ]; then
   echo "Using CORALOGIX_PRIVATE_KEY from environment."
 else
@@ -78,6 +92,8 @@ cat > "$PLIST_DST" <<PLIST
     <dict>
         <key>CORALOGIX_PRIVATE_KEY</key>
         <string>${CORALOGIX_PRIVATE_KEY}</string>
+        <key>CX_APPLICATION_NAME</key>
+        <string>${CX_APPLICATION_NAME}</string>
     </dict>
 
     <key>RunAtLoad</key>
@@ -113,7 +129,7 @@ if launchctl list 2>/dev/null | grep -q "$PLIST_NAME"; then
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   echo "  Metrics will appear in Coralogix within ~2 min"
-  echo "  Application name : macbook"
+  echo "  Application name : $CX_APPLICATION_NAME"
   echo "  Subsystem name   : host-metrics"
   echo ""
   echo "  Useful commands:"
