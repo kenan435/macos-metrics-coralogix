@@ -7,6 +7,7 @@ receivers:
     scrapers:
       # macOS: load, memory, network, filesystem, paging, cpu, process (contrib)
       cpu: {}
+      disk: {}
       process:
         mute_process_all_errors: true
       load: {}
