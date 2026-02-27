@@ -2,5 +2,4 @@
 otelcol-contrib*
 *.tar.gz
 collector.log
-collector-service.ps1
 config-windows-local.yaml
