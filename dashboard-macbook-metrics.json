@@ -40,7 +40,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "100 - (\n  sum(rate(system_cpu_time_total{state=\"idle\", cx_application_name=~\"$machine\"}[5m]))\n  /\n  sum(rate(system_cpu_time_total{cx_application_name=~\"$machine\"}[5m]))\n  * 100\n)"
+                              "value": "100 - (\n  sum(rate(system_cpu_time_total{state=\"idle\", cx_subsystem_name=\"host-metrics\"}[5m]))\n  /\n  sum(rate(system_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m]))\n  * 100\n)"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -88,7 +88,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "(sum(system_memory_usage_By{cx_application_name=~\"$machine\",state=\"used\"}) / sum(system_memory_usage_By{cx_application_name=~\"$machine\"})) * 100"
+                              "value": "(sum(system_memory_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"}) / sum(system_memory_usage_By{cx_subsystem_name=\"host-metrics\"})) * 100"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -136,7 +136,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "(sum(system_filesystem_usage_By{cx_application_name=~\"$machine\",state=\"used\"}) / sum(system_filesystem_usage_By{cx_application_name=~\"$machine\"})) * 100"
+                              "value": "(sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"}) / sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\"})) * 100"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -194,7 +194,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(rate(system_network_io_By_total{cx_application_name=~\"$machine\"}[5m])) by (direction) / 1024"
+                              "value": "sum(rate(system_network_io_By_total{cx_subsystem_name=\"host-metrics\"}[5m])) by (direction) / 1024"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -239,7 +239,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "sum(system_paging_usage_By{cx_application_name=~\"$machine\",state=\"used\"})"
+                          "value": "sum(system_paging_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"})"
                         },
                         "aggregation": "AGGREGATION_UNSPECIFIED",
                         "filters": [],
@@ -304,7 +304,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(system_network_connections__connections_{cx_application_name=~\"$machine\"}) by (state)"
+                              "value": "sum(system_network_connections__connections_{cx_subsystem_name=\"host-metrics\"}) by (state)"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -352,7 +352,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(rate(system_paging_faults__faults__total{cx_application_name=~\"$machine\"}[5m])) by (type)"
+                              "value": "sum(rate(system_paging_faults__faults__total{cx_subsystem_name=\"host-metrics\"}[5m])) by (type)"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -400,7 +400,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(rate(system_network_errors__errors__total{cx_application_name=~\"$machine\"}[5m]))"
+                              "value": "sum(rate(system_network_errors__errors__total{cx_subsystem_name=\"host-metrics\"}[5m]))"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -424,7 +424,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(rate(system_network_dropped__packets__total{cx_application_name=~\"$machine\"}[5m]))"
+                              "value": "sum(rate(system_network_dropped__packets__total{cx_subsystem_name=\"host-metrics\"}[5m]))"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -469,7 +469,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "(sum(system_filesystem_usage_By{cx_application_name=~\"$machine\",state=\"used\"}) by (device) / sum(system_filesystem_usage_By{cx_application_name=~\"$machine\"}) by (device)) * 100"
+                          "value": "(sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"}) by (device) / sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\"}) by (device)) * 100"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -515,7 +515,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(system_cpu_load_average_1m__thread_{cx_application_name=~\"$machine\"})"
+                              "value": "sum(system_cpu_load_average_1m__thread_{cx_subsystem_name=\"host-metrics\"})"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -539,7 +539,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(system_cpu_load_average_5m__thread_{cx_application_name=~\"$machine\"})"
+                              "value": "sum(system_cpu_load_average_5m__thread_{cx_subsystem_name=\"host-metrics\"})"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -563,7 +563,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(system_cpu_load_average_15m__thread_{cx_application_name=~\"$machine\"})"
+                              "value": "sum(system_cpu_load_average_15m__thread_{cx_subsystem_name=\"host-metrics\"})"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -608,7 +608,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, max(max_over_time(process_memory_usage_By{cx_application_name=~\"$machine\"}[1h])) by (process_pid,process_executable_name) / 1024 / 1024)"
+                          "value": "topk(50, max(max_over_time(process_memory_usage_By{cx_subsystem_name=\"host-metrics\"}[1h])) by (process_pid,process_executable_name) / 1024 / 1024)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -645,7 +645,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, sum(rate(process_cpu_time_total{cx_application_name=~\"$machine\"}[5m])) by (process_pid,process_executable_name) * 100)"
+                          "value": "topk(50, sum(rate(process_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m])) by (process_pid,process_executable_name) * 100)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -692,7 +692,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "sum(system_cpu_load_average_1m__thread_{cx_application_name=~\"$machine\"}) / 16 * 100"
+                          "value": "sum(system_cpu_load_average_1m__thread_{cx_subsystem_name=\"host-metrics\"}) / 16 * 100"
                         },
                         "aggregation": "AGGREGATION_UNSPECIFIED",
                         "filters": [],
@@ -744,7 +744,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "(sum(system_memory_usage_By{cx_application_name=~\"$machine\",state=\"used\"}) / sum(system_memory_usage_By{cx_application_name=~\"$machine\"})) * 100"
+                          "value": "(sum(system_memory_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"}) / sum(system_memory_usage_By{cx_subsystem_name=\"host-metrics\"})) * 100"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -791,7 +791,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "sum(system_filesystem_usage_By{cx_application_name=~\"$machine\"})"
+                          "value": "sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\"})"
                         },
                         "aggregation": "AGGREGATION_UNSPECIFIED",
                         "filters": [],
@@ -874,7 +874,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(rate(system_disk_io_By_total{cx_application_name=~\"$machine\",direction=\"read\"}[5m])) by (device)"
+                              "value": "sum(rate(system_disk_io_By_total{cx_subsystem_name=\"host-metrics\",direction=\"read\"}[5m])) by (device)"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -898,7 +898,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(rate(system_disk_io_By_total{cx_application_name=~\"$machine\",direction=\"write\"}[5m])) by (device)"
+                              "value": "sum(rate(system_disk_io_By_total{cx_subsystem_name=\"host-metrics\",direction=\"write\"}[5m])) by (device)"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -946,7 +946,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(rate(system_disk_operations__operations__total{cx_application_name=~\"$machine\"}[5m])) by (device, direction)"
+                              "value": "sum(rate(system_disk_operations__operations__total{cx_subsystem_name=\"host-metrics\"}[5m])) by (device, direction)"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1004,7 +1004,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(rate(system_paging_operations__operations__total{cx_application_name=~\"$machine\"}[5m])) by (direction, type)"
+                              "value": "sum(rate(system_paging_operations__operations__total{cx_subsystem_name=\"host-metrics\"}[5m])) by (direction, type)"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1052,7 +1052,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "sum(rate(system_network_packets__packets__total{cx_application_name=~\"$machine\"}[5m])) by (direction)"
+                              "value": "sum(rate(system_network_packets__packets__total{cx_subsystem_name=\"host-metrics\"}[5m])) by (direction)"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1097,7 +1097,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, sum(rate(process_cpu_time_total{cx_application_name=~\"$machine\"}[5m])) by (process_pid, process_executable_name, process_owner, process_command) * 100)"
+                          "value": "topk(50, sum(rate(process_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m])) by (process_pid, process_executable_name, process_owner, process_command) * 100)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1141,7 +1141,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, max(max_over_time(process_memory_virtual_By{cx_application_name=~\"$machine\"}[1h])) by (process_pid, process_executable_name, process_owner) / 1024 / 1024)"
+                          "value": "topk(50, max(max_over_time(process_memory_virtual_By{cx_subsystem_name=\"host-metrics\"}[1h])) by (process_pid, process_executable_name, process_owner) / 1024 / 1024)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1187,40 +1187,30 @@
     ]
   },
   "variables": [],
-  "variablesV2": [
+  "variablesV2": [],
+  "filters": [
     {
-      "name": "machine",
+      "id": {
+        "value": "filter-machine"
+      },
       "displayName": "Machine",
-      "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+      "enabled": true,
+      "collapsed": false,
       "source": {
-        "query": {
-          "metricsQuery": {
-            "type": {
-              "labelValue": {
-                "labelName": {
-                  "stringValue": "cx_application_name"
-                },
-                "metricName": {
-                  "stringValue": "system_cpu_time_total"
-                }
+        "metrics": {
+          "label": "cx_application_name",
+          "metric": "system_cpu_time_total",
+          "operator": {
+            "equals": {
+              "selection": {
+                "all": {}
               }
             }
-          },
-          "allOption": {
-            "includeAll": true,
-            "label": "All"
-          },
-          "valuesOrderDirection": "ORDER_DIRECTION_ASC"
-        }
-      },
-      "value": {
-        "multiString": {
-          "all": {}
+          }
         }
       }
     }
   ],
-  "filters": [],
   "relativeTimeFrame": "3600s",
   "annotations": [],
   "off": {},
