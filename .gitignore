@@ -1,0 +1,4 @@
+# Downloaded binaries
+otelcol-contrib*
+*.tar.gz
+collector.log

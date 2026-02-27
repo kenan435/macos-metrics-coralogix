@@ -1,0 +1,45 @@
+# OpenTelemetry Collector - Local Mac to Coralogix
+# Sends host metrics from your Mac to Coralogix UI
+
+receivers:
+  hostmetrics:
+    collection_interval: 30s
+    scrapers:
+      # macOS: load, memory, network, filesystem, paging, cpu, process (contrib)
+      cpu: {}
+      process:
+        mute_process_all_errors: true
+      load: {}
+      memory: {}
+      network: {}
+      filesystem: {}
+      paging: {}
+
+processors:
+  batch:
+    timeout: 10s
+    send_batch_size: 1024
+  resource:
+    attributes:
+      - key: deployment.environment.name
+        value: "local-mac"
+        action: upsert
+
+exporters:
+  coralogix:
+    domain: "eu2.coralogix.com"
+    private_key: "${env:CORALOGIX_PRIVATE_KEY}"
+    application_name: "macbook"
+    subsystem_name: "host-metrics"
+    timeout: 30s
+  debug:
+    verbosity: basic
+    sampling_initial: 2
+    sampling_thereafter: 10
+
+service:
+  pipelines:
+    metrics:
+      receivers: [hostmetrics]
+      processors: [resource, batch]
+      exporters: [coralogix, debug]
