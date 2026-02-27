@@ -40,7 +40,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "100 - (avg(avg_over_time(system_cpu_utilization_1{state=\"idle\",cx_application_name=\"macbook\"}[1m])) by (host_name) * 100)"
+                              "value": "100 - (\n  sum(rate(system_cpu_time_total{state=\"idle\", cx_application_name=\"macbook\"}[5m]))\n  /\n  sum(rate(system_cpu_time_total{cx_application_name=\"macbook\"}[5m]))\n  * 100\n)"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
