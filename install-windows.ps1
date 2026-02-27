@@ -52,12 +52,13 @@ if ($env:CORALOGIX_PRIVATE_KEY) {
 if (-not (Test-Path $BINARY)) {
     Write-Host ""
     Write-Host "Downloading otelcol-contrib v$VERSION for Windows..."
-    $zipUrl = "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v$VERSION/otelcol-contrib_${VERSION}_windows_amd64.zip"
-    $zipPath = "$INSTALL_DIR\otelcol-contrib.zip"
-    Invoke-WebRequest -Uri $zipUrl -OutFile $zipPath -UseBasicParsing
+    $tarUrl = "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v$VERSION/otelcol-contrib_${VERSION}_windows_amd64.tar.gz"
+    $tarPath = "$INSTALL_DIR\otelcol-contrib.tar.gz"
+    Invoke-WebRequest -Uri $tarUrl -OutFile $tarPath -UseBasicParsing
     Write-Host "Extracting..."
-    Expand-Archive -Path $zipPath -DestinationPath $INSTALL_DIR -Force
-    Remove-Item $zipPath
+    # tar is built-in on Windows 10+
+    & tar -xzf $tarPath -C $INSTALL_DIR otelcol-contrib.exe
+    Remove-Item $tarPath
     Write-Host "Binary ready." -ForegroundColor Green
 } else {
     Write-Host "otelcol-contrib binary already present." -ForegroundColor Green
