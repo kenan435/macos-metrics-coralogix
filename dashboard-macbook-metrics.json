@@ -511,11 +511,11 @@
                     },
                     "queryDefinitions": [
                       {
-                        "id": "q-load-combined",
+                        "id": "q-load-1m",
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "label_replace(system_cpu_load_average_1m__thread_{cx_subsystem_name=\"host-metrics\"}, \"period\", \"1m\", \"\", \"\") or label_replace(system_cpu_load_average_5m__thread_{cx_subsystem_name=\"host-metrics\"}, \"period\", \"5m\", \"\", \"\") or label_replace(system_cpu_load_average_15m__thread_{cx_subsystem_name=\"host-metrics\"}, \"period\", \"15m\", \"\", \"\")"
+                              "value": "sum(system_cpu_load_average_1m__thread_{cx_subsystem_name=\"host-metrics\"})"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -525,7 +525,55 @@
                         "seriesCountLimit": "20",
                         "unit": "UNIT_UNSPECIFIED",
                         "scaleType": "SCALE_TYPE_LINEAR",
-                        "name": "query-1",
+                        "name": "1m",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false
+                      },
+                      {
+                        "id": "q-load-5m",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(system_cpu_load_average_5m__thread_{cx_subsystem_name=\"host-metrics\"})"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_UNSPECIFIED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "5m",
+                        "isVisible": true,
+                        "colorScheme": "classic",
+                        "resolution": {
+                          "bucketsPresented": 96
+                        },
+                        "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                        "hashColors": false
+                      },
+                      {
+                        "id": "q-load-15m",
+                        "query": {
+                          "metrics": {
+                            "promqlQuery": {
+                              "value": "sum(system_cpu_load_average_15m__thread_{cx_subsystem_name=\"host-metrics\"})"
+                            },
+                            "filters": [],
+                            "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                            "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                          }
+                        },
+                        "seriesCountLimit": "20",
+                        "unit": "UNIT_UNSPECIFIED",
+                        "scaleType": "SCALE_TYPE_LINEAR",
+                        "name": "15m",
                         "isVisible": true,
                         "colorScheme": "classic",
                         "resolution": {
