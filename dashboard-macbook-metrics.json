@@ -608,7 +608,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, max(max_over_time(process_memory_usage_By{cx_subsystem_name=\"host-metrics\"}[1h])) by (process_pid,process_executable_name) / 1024 / 1024)"
+                          "value": "sort_desc(max(process_memory_usage_By{cx_subsystem_name=\"host-metrics\"}) by (process_pid, process_executable_name) / 1024 / 1024)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -645,7 +645,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, sum(rate(process_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m])) by (process_pid,process_executable_name) * 100)"
+                          "value": "sort_desc(sum(rate(process_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m])) by (process_pid, process_executable_name) * 100)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1102,7 +1102,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, sum(rate(process_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m])) by (process_pid, process_executable_name, process_owner, process_command) * 100)"
+                          "value": "sort_desc(sum(rate(process_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m])) by (process_pid, process_executable_name, process_owner, process_command) * 100)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1146,7 +1146,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, max(max_over_time(process_memory_virtual_By{cx_subsystem_name=\"host-metrics\"}[1h])) by (process_pid, process_executable_name, process_owner) / 1024 / 1024)"
+                          "value": "sort_desc(max(process_memory_virtual_By{cx_subsystem_name=\"host-metrics\"}) by (process_pid, process_executable_name, process_owner) / 1024 / 1024)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
