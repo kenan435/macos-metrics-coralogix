@@ -740,20 +740,22 @@
                 },
                 "title": "Memory %",
                 "definition": {
-                  "hexagon": {
+                  "gauge": {
                     "query": {
                       "metrics": {
                         "promqlQuery": {
                           "value": "(sum(system_memory_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"}) / sum(system_memory_usage_By{cx_subsystem_name=\"host-metrics\"})) * 100"
                         },
+                        "aggregation": "AGGREGATION_UNSPECIFIED",
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                        "aggregation": "AGGREGATION_LAST",
-                        "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                       }
                     },
                     "min": 0,
                     "max": 100,
+                    "showInnerArc": false,
+                    "showOuterArc": false,
                     "unit": "UNIT_PERCENT_ZERO_HUNDRED",
                     "thresholds": [
                       {
@@ -770,14 +772,17 @@
                       }
                     ],
                     "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                    "thresholdBy": "THRESHOLD_BY_VALUE",
+                    "decimal": 1,
                     "thresholdType": "THRESHOLD_TYPE_RELATIVE",
                     "legend": {
-                      "isVisible": true,
+                      "isVisible": false,
                       "columns": [],
-                      "groupByQuery": true,
+                      "groupByQuery": false,
                       "placement": "LEGEND_PLACEMENT_AUTO"
                     },
-                    "legendBy": "LEGEND_BY_GROUPS"
+                    "legendBy": "LEGEND_BY_GROUPS",
+                    "displaySeriesName": false
                   }
                 }
               },
