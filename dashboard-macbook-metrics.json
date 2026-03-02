@@ -57,7 +57,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -105,7 +111,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -153,7 +165,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -211,7 +229,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_ABSOLUTE",
@@ -321,7 +345,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_ABSOLUTE",
@@ -369,7 +399,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -417,7 +453,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       },
                       {
                         "id": "q-dropped",
@@ -441,7 +483,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -484,8 +532,7 @@
                         "width": 280
                       },
                       {
-                        "field": "Value",
-                        "width": 120
+                        "field": "#value"
                       }
                     ],
                     "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
@@ -522,6 +569,7 @@
                             "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
                           }
                         },
+                        "seriesNameTemplate": "1 Minute",
                         "seriesCountLimit": "20",
                         "unit": "UNIT_UNSPECIFIED",
                         "scaleType": "SCALE_TYPE_LINEAR",
@@ -532,7 +580,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       },
                       {
                         "id": "q-load-5m",
@@ -546,6 +600,7 @@
                             "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
                           }
                         },
+                        "seriesNameTemplate": "5 Minutes",
                         "seriesCountLimit": "20",
                         "unit": "UNIT_UNSPECIFIED",
                         "scaleType": "SCALE_TYPE_LINEAR",
@@ -556,7 +611,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       },
                       {
                         "id": "q-load-15m",
@@ -570,6 +631,7 @@
                             "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
                           }
                         },
+                        "seriesNameTemplate": "15 Minutes",
                         "seriesCountLimit": "20",
                         "unit": "UNIT_UNSPECIFIED",
                         "scaleType": "SCALE_TYPE_LINEAR",
@@ -580,7 +642,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -627,8 +695,7 @@
                         "width": 320
                       },
                       {
-                        "field": "Value",
-                        "width": 120
+                        "field": "#value"
                       }
                     ],
                     "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
@@ -664,8 +731,7 @@
                         "width": 320
                       },
                       {
-                        "field": "Value",
-                        "width": 120
+                        "field": "#value"
                       }
                     ],
                     "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
@@ -896,7 +962,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       },
                       {
                         "id": "q-disk-write",
@@ -920,7 +992,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -968,7 +1046,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -1026,7 +1110,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -1074,7 +1164,13 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false
+                        "hashColors": false,
+                        "intervalResolution": {
+                          "auto": {
+                            "minimumInterval": "15s",
+                            "maximumDataPoints": 96
+                          }
+                        }
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -1096,7 +1192,7 @@
                 "id": {
                   "value": "table-processes-detail"
                 },
-                "title": "Processes \u2014 CPU, Memory & Owner",
+                "title": "Processes — CPU, Memory & Owner",
                 "definition": {
                   "dataTable": {
                     "query": {
@@ -1140,7 +1236,7 @@
                 "id": {
                   "value": "table-process-virt-mem"
                 },
-                "title": "Processes \u2014 Virtual Memory (MB)",
+                "title": "Processes — Virtual Memory (MB)",
                 "definition": {
                   "dataTable": {
                     "query": {
@@ -1195,16 +1291,9 @@
   "variablesV2": [],
   "filters": [
     {
-      "id": {
-        "value": "filter-machine"
-      },
-      "displayName": "Machine",
-      "enabled": true,
-      "collapsed": false,
       "source": {
         "metrics": {
           "label": "cx_application_name",
-          "metric": "system_cpu_time_total",
           "operator": {
             "equals": {
               "selection": {
@@ -1213,6 +1302,12 @@
             }
           }
         }
+      },
+      "enabled": true,
+      "collapsed": false,
+      "displayName": "Machine",
+      "id": {
+        "value": "filter-machine"
       }
     }
   ],
