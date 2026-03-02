@@ -136,7 +136,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "(sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"}) / sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\"})) * 100"
+                              "value": "(sum(max by(device)(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"})) / sum(max by(device)(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\"}))) * 100"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -277,7 +277,7 @@
                       "placement": "LEGEND_PLACEMENT_AUTO"
                     },
                     "legendBy": "LEGEND_BY_GROUPS",
-                    "displaySeriesName": true
+                    "displaySeriesName": false
                   }
                 }
               },
@@ -469,7 +469,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "(sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"}) by (device) / sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\"}) by (device)) * 100"
+                          "value": "(sum(max by(device)(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"})) by (device) / sum(max by(device)(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\"})) by (device)) * 100"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -730,7 +730,7 @@
                       "placement": "LEGEND_PLACEMENT_AUTO"
                     },
                     "legendBy": "LEGEND_BY_GROUPS",
-                    "displaySeriesName": true
+                    "displaySeriesName": false
                   }
                 }
               },
@@ -796,7 +796,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "sum(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\"})"
+                          "value": "sum(max by(device)(system_filesystem_usage_By{cx_subsystem_name=\"host-metrics\"}))"
                         },
                         "aggregation": "AGGREGATION_UNSPECIFIED",
                         "filters": [],
@@ -826,7 +826,7 @@
                       "placement": "LEGEND_PLACEMENT_AUTO"
                     },
                     "legendBy": "LEGEND_BY_GROUPS",
-                    "displaySeriesName": true
+                    "displaySeriesName": false
                   }
                 }
               }
