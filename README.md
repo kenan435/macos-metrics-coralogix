@@ -70,16 +70,28 @@ export CORALOGIX_API_KEY="your-api-key"
 launchctl list | grep coralogix
 
 # View logs
-tail -f ~/Library/LaunchAgents/collector.log
+tail -f collector.log
 
 # Stop
 launchctl unload ~/Library/LaunchAgents/com.coralogix.otel-collector.plist
 
 # Start
 launchctl load ~/Library/LaunchAgents/com.coralogix.otel-collector.plist
+```
 
-# Uninstall completely
+### Uninstall
+
+To stop the collector and remove it from login startup:
+
+```bash
 ./uninstall-service.sh
+```
+
+To also delete the binary and repo:
+
+```bash
+./uninstall-service.sh
+rm -rf /path/to/macos-metrics-coralogix
 ```
 
 ---
