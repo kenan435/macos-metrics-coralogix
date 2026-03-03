@@ -84,12 +84,6 @@ launchctl load ~/Library/LaunchAgents/com.coralogix.otel-collector.plist
 
 ---
 
-## Adding another Mac
-
-Just clone the repo and run `./install.sh` on the new machine. Give it a different machine name when prompted and it will show up as a separate option in the dashboard's **Machine** filter.
-
----
-
 ## How it works
 
 ```
