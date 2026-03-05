@@ -1,30 +1,76 @@
-# OpenTelemetry Collector - Local Mac to Coralogix
-# Sends host metrics from your Mac to Coralogix UI
+# OpenTelemetry Collector - macOS Host Metrics → Coralogix
+
+extensions:
+  health_check:
+    endpoint: 127.0.0.1:13133
 
 receivers:
   hostmetrics:
-    collection_interval: 30s
+    collection_interval: 15s
     scrapers:
-      # macOS: load, memory, network, filesystem, paging, cpu, process (contrib)
-      cpu: {}
+      cpu:
+        metrics:
+          system.cpu.utilization:
+            enabled: true
       disk: {}
+      filesystem:
+        exclude_fs_types:
+          match_type: strict
+          fs_types:
+            - autofs
+            - devfs
+            - synthetic
+            - nullfs
+            - fdesc
+            - tmpfs
+        exclude_mount_points:
+          match_type: regexp
+          mount_points:
+            - /dev/.*
+            - /private/var/folders/.*
+      load: {}
+      memory:
+        metrics:
+          system.memory.utilization:
+            enabled: true
+      network: {}
+      paging: {}
       process:
         mute_process_all_errors: true
-      load: {}
-      memory: {}
-      network: {}
-      filesystem: {}
-      paging: {}
+        metrics:
+          process.cpu.utilization:
+            enabled: true
+          process.memory.utilization:
+            enabled: true
+          process.threads:
+            enabled: true
 
 processors:
-  batch:
-    timeout: 10s
-    send_batch_size: 1024
+  memory_limiter:
+    check_interval: 5s
+    limit_mib: 256
+  resourcedetection:
+    detectors: [system, env]
+    override: false
+    system:
+      resource_attributes:
+        host.id:
+          enabled: true
+        host.ip:
+          enabled: true
+        host.mac:
+          enabled: true
+        os.description:
+          enabled: true
   resource:
     attributes:
       - key: deployment.environment.name
         value: "local-mac"
         action: upsert
+  batch:
+    timeout: 10s
+    send_batch_size: 1024
+    send_batch_max_size: 2048
 
 exporters:
   coralogix:
@@ -39,11 +85,12 @@ exporters:
     sampling_thereafter: 10
 
 service:
+  extensions: [health_check]
   telemetry:
     logs:
       level: warn
   pipelines:
     metrics:
       receivers: [hostmetrics]
-      processors: [resource, batch]
+      processors: [memory_limiter, resourcedetection, resource, batch]
       exporters: [coralogix, debug]
