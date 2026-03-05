@@ -1,7 +1,7 @@
 {
   "id": "gWbDIDSXdOcHzYpGPq5Ju",
-  "name": "Host Metrics",
-  "description": "New Relic-style system monitoring: CPU, Memory, Storage %, Network, Disk table, Load average",
+  "name": "MacOS - Host Metrics",
+  "description": "Dashboard monitoring: CPU, Memory, Storage %, Network, Disk table, Load average",
   "layout": {
     "sections": [
       {
@@ -40,7 +40,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "100 - (\n  sum(rate(system_cpu_time_total{state=\"idle\", cx_subsystem_name=\"host-metrics\"}[5m]))\n  /\n  sum(rate(system_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m]))\n  * 100\n)"
+                              "value": "(1 - avg(system_cpu_utilization_1{state=\"idle\", cx_subsystem_name=\"host-metrics\"})) * 100"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -57,13 +57,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -94,7 +88,7 @@
                         "query": {
                           "metrics": {
                             "promqlQuery": {
-                              "value": "(sum(system_memory_usage_By{cx_subsystem_name=\"host-metrics\",state=\"used\"}) / sum(system_memory_usage_By{cx_subsystem_name=\"host-metrics\"})) * 100"
+                              "value": "system_memory_utilization_1{state=\"used\", cx_subsystem_name=\"host-metrics\"} * 100"
                             },
                             "filters": [],
                             "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -111,13 +105,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -165,13 +153,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -229,13 +211,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_ABSOLUTE",
@@ -345,13 +321,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_ABSOLUTE",
@@ -399,13 +369,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -453,13 +417,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       },
                       {
                         "id": "q-dropped",
@@ -483,13 +441,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -580,13 +532,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       },
                       {
                         "id": "q-load-5m",
@@ -611,13 +557,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       },
                       {
                         "id": "q-load-15m",
@@ -642,13 +582,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -712,7 +646,7 @@
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, sum(rate(process_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m])) by (process_pid,process_executable_name) * 100)"
+                          "value": "topk(50, max(process_cpu_utilization_1{cx_subsystem_name=\"host-metrics\"}) by (process_pid, process_executable_name) * 100)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -962,13 +896,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       },
                       {
                         "id": "q-disk-write",
@@ -992,13 +920,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -1046,13 +968,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -1110,13 +1026,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -1164,13 +1074,7 @@
                           "bucketsPresented": 96
                         },
                         "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                        "hashColors": false,
-                        "intervalResolution": {
-                          "auto": {
-                            "minimumInterval": "15s",
-                            "maximumDataPoints": 96
-                          }
-                        }
+                        "hashColors": false
                       }
                     ],
                     "stackedLine": "STACKED_LINE_UNSPECIFIED",
@@ -1192,13 +1096,13 @@
                 "id": {
                   "value": "table-processes-detail"
                 },
-                "title": "Processes — CPU, Memory & Owner",
+                "title": "Processes \u2014 CPU, Memory & Owner",
                 "definition": {
                   "dataTable": {
                     "query": {
                       "metrics": {
                         "promqlQuery": {
-                          "value": "topk(50, sum(rate(process_cpu_time_total{cx_subsystem_name=\"host-metrics\"}[5m])) by (process_pid,process_executable_name,process_owner,process_command) * 100)"
+                          "value": "topk(50, max(process_cpu_utilization_1{cx_subsystem_name=\"host-metrics\"}) by (process_pid, process_executable_name, process_owner, process_command) * 100)"
                         },
                         "filters": [],
                         "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1236,7 +1140,7 @@
                 "id": {
                   "value": "table-process-virt-mem"
                 },
-                "title": "Processes — Virtual Memory (MB)",
+                "title": "Processes \u2014 Virtual Memory (MB)",
                 "definition": {
                   "dataTable": {
                     "query": {
@@ -1311,7 +1215,7 @@
       }
     }
   ],
-  "relativeTimeFrame": "3600s",
+  "relativeTimeFrame": "86400s",
   "annotations": [],
   "off": {},
   "actions": []
