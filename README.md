@@ -2,7 +2,7 @@
 
 Send real-time system metrics from any Mac to [Coralogix](https://coralogix.com) using the OpenTelemetry Collector. Includes a pre-built dashboard to visualize CPU, memory, disk, network, and process data.
 
-![Dashboard preview](https://img.shields.io/badge/Coralogix-Dashboard-green)
+![Dashboard preview](assets/dashboard-preview.png)
 
 ---
 
